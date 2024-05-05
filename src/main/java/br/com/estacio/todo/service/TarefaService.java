@@ -4,6 +4,8 @@ import br.com.estacio.todo.dto.DadosListagemTarefa;
 import br.com.estacio.todo.model.Tarefa;
 import br.com.estacio.todo.repository.TarefaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
@@ -21,6 +23,10 @@ public class TarefaService {
 
     public List<Tarefa> listar(){
         return repository.findAll();
+    }
+
+    public Page<DadosListagemTarefa> listarPaginado(Pageable paginacao){
+        return repository.findAll(paginacao).map(DadosListagemTarefa::new);
     }
 
 }
