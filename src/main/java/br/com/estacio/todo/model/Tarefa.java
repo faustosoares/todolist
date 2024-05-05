@@ -1,6 +1,7 @@
 package br.com.estacio.todo.model;
 
 
+import br.com.estacio.todo.dto.DadosCadastroTarefa;
 import br.com.estacio.todo.enums.Prioridade;
 import br.com.estacio.todo.enums.Situacao;
 import jakarta.persistence.*;
@@ -27,5 +28,12 @@ public class Tarefa {
 
     @Enumerated(EnumType.STRING)
     private Prioridade prioridade;
+
+    public Tarefa(DadosCadastroTarefa dados){
+        this.titulo = dados.titulo();
+        this.descricao = dados.descricao();
+        this.prioridade = dados.prioridade();
+        this.situacao = Situacao.NAO_INICIADA;
+    }
 
 }
