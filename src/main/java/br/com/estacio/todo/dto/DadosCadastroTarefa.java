@@ -8,10 +8,8 @@ import jakarta.validation.constraints.NotNull;
 public record DadosCadastroTarefa(
         @NotBlank
         String titulo,
-
         @NotBlank
         String descricao,
-        Situacao situacao,
         @NotNull
         Prioridade prioridade) {
 }
