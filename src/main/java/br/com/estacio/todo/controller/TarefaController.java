@@ -1,5 +1,6 @@
 package br.com.estacio.todo.controller;
 
+import br.com.estacio.todo.dto.DadosAtualizacaoTarefa;
 import br.com.estacio.todo.dto.DadosCadastroTarefa;
 import br.com.estacio.todo.dto.DadosDetalhamentoTarefa;
 import br.com.estacio.todo.dto.DadosListagemTarefa;
@@ -46,6 +47,15 @@ public class TarefaController {
         return ResponseEntity.ok(dadosDto);
     }
 
+    @PutMapping
+    public void atualizar(@RequestBody @Valid DadosAtualizacaoTarefa tarefaDto){
+        service.alterar(tarefaDto);
+    }
+
+    @PatchMapping
+    public void atualizarParcialmente(@RequestBody DadosAtualizacaoTarefa tarefaDto){
+        service.alterarParcialmente(tarefaDto);
+    }
 
 
 }

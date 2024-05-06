@@ -1,6 +1,7 @@
 package br.com.estacio.todo.model;
 
 
+import br.com.estacio.todo.dto.DadosAtualizacaoTarefa;
 import br.com.estacio.todo.dto.DadosCadastroTarefa;
 import br.com.estacio.todo.enums.Prioridade;
 import br.com.estacio.todo.enums.Situacao;
@@ -34,6 +35,10 @@ public class Tarefa {
         this.descricao = dados.descricao();
         this.prioridade = dados.prioridade();
         this.situacao = Situacao.NAO_INICIADA;
+    }
+
+    public void atualizarInformacoes(DadosAtualizacaoTarefa dados){
+
     }
 
 }
